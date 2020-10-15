@@ -24,7 +24,7 @@ public class Ex009 {
 //		System.out.println(today);
 //		System.out.println(sum);
 //		System.out.println(yun);
-		System.out.println((sum+yun+today));
+		System.out.println("서기1년~ 오늘 총 날수 : "+(sum+yun+today));
 	}
 
 }
