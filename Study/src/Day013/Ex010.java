@@ -27,6 +27,7 @@ public class Ex010 {
 		for(int k=0;k<day.length;k++) {
 			if(sum%7==k) {
 				day02 = day[k];
+				System.out.println(day[k]);
 			}
 		}
 		
