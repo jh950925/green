@@ -29,23 +29,8 @@ public class Bank005 {
 			System.out.print("입력 >>");
 			num = scanner.nextInt();
 			System.out.println();
-			if (num == 1 || num == 2 || num == 3 || num == 4 || num == 5 || num == 9 || num == 10) {
+			if (num == 1 || num == 2 || num == 3 || num == 4 || num == 5 || num == 9) {
 
-				if(num == 10) {
-					
-					for (int i = 0; i < id.length; i++) {
-							System.out.println("====조회결과====");
-							System.out.println("아이디 : " + Arrays.toString(id) 
-											+ "\n" + "나이 : " + Arrays.toString(age) 
-											+ "\n" + "잔액 : " + Arrays.toString(balance) 
-											+ "\n" + "암호 : " + Arrays.toString(pass) 
-											+ "\n" + "조회가 성공했습니다.");
-							System.out.println("조회가 실패했습니다." + "\n아무키나 누르세요");
-							back = scanner.next();
-							continue;
-						}
-				}
-				
 				// 1.추가
 				if (num == 1) {
 					if (cnt == 3) {
@@ -61,7 +46,6 @@ public class Bank005 {
 						System.out.println("*Balance : ");
 						balance[cnt] = scanner.nextInt();
 						cnt++;
-						continue;
 					}
 				} // 조회
 
@@ -108,7 +92,7 @@ public class Bank005 {
 					}
 						if (chk) {
 							System.out.println("입금액 : ");
-							plus[count] = scanner.nextInt();
+							minus[count] = scanner.nextInt();
 							balance[count] += plus[count];
 							continue;
 						} else{
@@ -166,7 +150,6 @@ public class Bank005 {
 								pass[count] = " ";
 								age[count] = 0;
 								balance[count] = 0;
-								cnt--;
 								break;
 							case 'n':	case 'N':
 								break; 
@@ -176,6 +159,7 @@ public class Bank005 {
 							System.out.println("계좌 정보가 없습니다.");
 							continue;
 						}
+						cnt--;
 					}
 				} // 삭제
 
