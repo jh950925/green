@@ -10,8 +10,8 @@ public class Bank007 {
 	private static boolean chk = false;
 	private static int count = 0;
 	private static String back = "";
-	private static String plus = "";
-	private static String minus = "";
+	private static int plus = 0;
+	private static int minus = 0;
 	private static char key = ' ';
 	private static Scanner scanner = new Scanner(System.in);
 
@@ -110,8 +110,10 @@ public class Bank007 {
 		}
 		if (chk) {
 			System.out.println("입금액 : ");
-			plus = scanner.next();
-			users[count][2] = Integer.toString(Integer.parseInt(users[count][2]) + Integer.parseInt(plus));
+			plus = scanner.nextInt();
+			if(plus>=0) {
+				users[count][2] = Integer.toString(Integer.parseInt(users[count][2]) + (plus));
+			}
 		} else {
 			System.out.println("계좌정보가 없습니다.");
 		}
@@ -132,8 +134,12 @@ public class Bank007 {
 		}
 		if (chk) {
 			System.out.println("출금액 : ");
-			minus = scanner.next();
-			users[count][2] = Integer.toString(Integer.parseInt(users[count][2]) - Integer.parseInt(minus));
+			minus = scanner.nextInt();
+			if(minus<=Integer.parseInt(users[count][2]))  {
+				users[count][2] = Integer.toString(Integer.parseInt(users[count][2]) - minus);
+			}else {
+				System.out.println("잔액을 확인하세요");
+			}
 		} else {
 			System.out.println("계좌정보가 없습니다.");
 		}
