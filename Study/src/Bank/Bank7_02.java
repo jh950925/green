@@ -3,7 +3,7 @@ package Bank;
 import java.util.Arrays;
 import java.util.Scanner;
 
-public class Bank007 {
+public class Bank7_02 {
 	private static int num = 0;
 	private static int cnt = 0;
 	private static String id_ck = " ";
