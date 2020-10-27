@@ -11,7 +11,7 @@ public class Day017_Method001 {
 			
 			
 			line();
-			System.out.println("[ver-2]");
+			System.out.println("[ver-2]"); 
 			hi();	//2-2 함수 호출
 	}//end main
 	

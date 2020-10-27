@@ -1,6 +1,7 @@
 package Bank;
 
 import java.util.Arrays;
+import java.util.Calendar;
 import java.util.Scanner;
 
 public class Bank7_02 {
@@ -45,13 +46,18 @@ public class Bank7_02 {
 	}
 
 	public static void menu() {
-		
+		Calendar today = Calendar.getInstance();
+		myCalendar(2020,10,25);
+		System.out.println();
+		System.out.println();
 		System.out.println("=====Bank=====");
 		System.out.println("1.추가\n" + "2.조회\n" + "3.입금\n" + "4.출금\n" + "5.삭제\n" + "9.종료");
 		System.out.print("입력 >>");
 		num = scanner.nextInt();
 	}
 
+	//cnt : 추가하는 숫자 
+	//i값이 users.length보다 작아야 하므로 3명까지만 추가 가능
 	public static void input(String[][] users) {
 		cnt = -1;
 		for (int i = 0; i < users.length; i++) {
@@ -60,18 +66,59 @@ public class Bank7_02 {
 				break;
 			}
 		}
-		if (cnt != -1) {
-			System.out.print("ID : ");
-			users[cnt][0] = scanner.next();
+		if (cnt != -1 && cnt <4) {
+			//아이디 @ 확인
+			//id_ck : 아이디 @ 형식 체크
+			for(;;) {
+				String id_02 = "";
+				System.out.print("ID : ");
+				id_02 = scanner.next();
+				if(id_02.indexOf("@") != -1) {
+					users[cnt][0] = id_02;
+					break;
+				}else {
+					System.out.println("이메일 형식으로 입력하셔야 합니다");
+					System.out.println("========================================");
+					continue;
+				}
+			}
 			System.out.print("PASS: ");
 			users[cnt][1] = scanner.next();
-			System.out.print("BALANCE : ");
-			users[cnt][2] = scanner.next();
+			
+			//비밀번호 검사
+			//pass_02 : 비밀번호 재확인
+			for(;;) {
+				String pass_02 = "";
+				System.out.print("PASS를 다시 입력해 주세요 : ");
+				pass_02 = scanner.next();
+				if(users[cnt][1].equals(pass_02)) {
+					break;
+				}else {
+					System.out.println();
+					System.out.println("설정하신 비밀번호와 동일한지 확인해 주세요");
+					System.out.println("========================================");
+				}
+			}
+			//잔액 양수확인
+			//balance_02 : 잔액 확이
+			for(;;) {
+				String balance_02 = "";
+				System.out.print("BALANCE : ");
+				balance_02 = scanner.next();
+				if(Integer.parseInt(balance_02) > 0) {
+					users[cnt][2] = balance_02;
+					break;
+				}else {
+					System.out.println();
+					System.out.println("잔액은 0이상 입력해 주세요");
+					System.out.println("========================================");
+				}
+			}
 		} else {
 			System.out.println("더 이상 신규가입이 불가능합니다.");
 		}
 
-	}
+	}//추가
 
 	public static void show(String[][] users) {
 		System.out.println("*Id : ");
@@ -96,7 +143,7 @@ public class Bank7_02 {
 			back = scanner.next();
 		}
 
-	}
+	}//조회
 
 	public static void deposit(String[][] users) {
 		System.out.println("입금 계좌정보 입력");
@@ -120,7 +167,7 @@ public class Bank7_02 {
 			System.out.println("계좌정보가 없습니다.");
 		}
 
-	}
+	}//입금
 
 	public static void withdraw(String[][] users) {
 		System.out.println("출금 계좌정보 입력");
@@ -146,7 +193,7 @@ public class Bank7_02 {
 			System.out.println("계좌정보가 없습니다.");
 		}
 
-	}
+	}//출금
 
 	static void delete(String[][] users) {
 			System.out.println("*ID : ");
@@ -175,6 +222,66 @@ public class Bank7_02 {
 				System.out.println("계좌 정보가 없습니다.");
 			}
 
-	}
+	}//삭제
+	
+	//요일
+		public static String week(int D) {
+			String result = "";
+			String [] day = {"일요일","월요일","화요일","수요일","목요일","금요일","토요일"};
+			for(int i=0;i<day.length;i++) {
+				if(D%7==i) {
+					result = day[i];
+				}
+			}
+			return result;
+		}
 
-}
+		//Method
+		
+		// 윤년
+		public static boolean leap(int num) {
+			if (num % 4 == 0 && num % 100 != 0 || num % 400 == 0) {
+				return true;
+			} else {
+				return false;
+			}
+		}
+		
+		//2019년2월 27일 총 날수와 요일구하기
+		public static void myCalendar(int year, int month, int day) {
+			int box = 0;
+			int [] mon = {0,31,28,31,30,31,30,31,31,30,31,30,31};
+			
+			for(int i=1; i<year;i++) {
+				box +=leap(i)? 366: 365;
+			}
+			mon[2] = leap(year)? 29 : 28;
+			for(int i=1; i<month;i++) {
+				box +=mon[i];
+			}
+			box +=day;
+			show(box, month, mon[month], day);
+			
+		}
+		
+		//달력 출력
+		public static void show(int hap, int month, int end, int date) {
+			String[] days = { "일요일", "월요일", "화요일", "수요일", "목요일", "금요일", "토요일" };
+			System.out.println("["+month+"]월");
+			System.out.println("-----------------------------------------------------");
+			for(int i=0;i<days.length;i++) {
+				System.out.print(days[i]+"\t");
+			}
+			System.out.println("\n-----------------------------------------------------");
+			for(int i=0; i<(hap-date+1)%7;i++) {
+				System.out.print("*\t");
+			}
+			for(int i=1; i<=end;i++) {
+				if((hap-date+i)%7==0) {
+					System.out.println();
+				}
+				System.out.print(i+"\t");
+			}
+			
+		}
+}//end class

@@ -23,7 +23,7 @@ public class Method025 {
 			System.out.print(name[i]+", ");
 		}
 	}
-	public static void disp_swipe(String [] name) {
+	public static void disp_swipe(String [] name) { 
 		String back = "";
 		back = name[0];
 		name[0]=name[1];

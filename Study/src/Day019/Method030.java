@@ -9,7 +9,7 @@ public class Method030 {
 		int[] afterweight = return_arr(beforeweight);
 		
 		show(beforeweight, afterweight);
-	}
+	} 
 
 	public static int[] return_arr(int[] be) {
 		int [] result = new int [3];
@@ -17,8 +17,8 @@ public class Method030 {
 			result[i] = be[i]-50;
 		}
 		return result;
-	}
-
+	} 
+ 
 	public static void show(int[] be, int[] af) {
 		System.out.println("BEFORE\tAFTER");
 		for(int i=0;i<be.length;i++) {

@@ -16,7 +16,7 @@ public class Method015 {
 		} else {
 			return false;
 		}
-	}
+	} 
 	
 	//2019년2월 27일 총 날수와 요일구하기
 	public static void myCalendar(int year, int month, int day) {

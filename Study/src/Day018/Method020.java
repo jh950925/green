@@ -15,9 +15,9 @@ public class Method020 {
  
 //		(2) 입력 : 이름,국어,영어,수학점수를 입력받으시오.
 		System.out.println("이름을 입력하세요 : ");
-		name = scanner.next();
-		System.out.println("국어 점수를 입력하세요");
-		kor = scanner.nextInt();
+		name = scanner.next(); 
+		System.out.println("국어 점수를 입력하세요");  
+		kor = scanner.nextInt(); 
 		System.out.println("영어 점수를 입력하세요");
 		eng = scanner.nextInt();
 		System.out.println("수학 점수를 입력하세요");
@@ -37,7 +37,7 @@ public class Method020 {
 		level_eng = process_level(eng);
 		level_math = process_level(math);
 		re = process_re(kor, eng, math); // 재시험 볼 과목이 있는지 확인해주는 메서드
-
+ 
 //		(4) 출력 :
 		line1();
 		process_show(name, kor, eng, math, total, avg, pass, jang, star);

@@ -13,7 +13,7 @@ public class Ex002_02 {
 		int mat[] = { 100, 30, 90, 60, 100 };
 		int avg[] = new int[5];
 		int rank[] = { 1, 1, 1, 1, 1 };
-
+ 
 		// 처리 1 - 평균
 		for (int i = 0; i < name.length; i++) {
 			avg[i] = (kor[i] + eng[i] + mat[i]) / 3;

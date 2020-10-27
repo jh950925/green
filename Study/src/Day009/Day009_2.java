@@ -15,7 +15,7 @@ public class Day009_2 {
 			if(a==1) {
 				break;
 			}
-			
+			scanner.close();
 		}
 	}
 

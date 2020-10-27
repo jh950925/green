@@ -4,27 +4,17 @@ import java.util.Arrays;
 import java.util.Scanner;
 
 public class Bank007 {
-	private static int num = 0;
-	private static int cnt = 0;
-	private static String id_ck = " ";
-	private static String pass_ck = " ";
-	private static boolean chk = false;
-	private static int count = 0;
-	private static String back = "";
-	private static int plus = 0;
-	private static int minus = 0;
-	private static char key = ' ';
-	private static Scanner scanner = new Scanner(System.in);
 
 	public static void main(String[] args) {
 		String[][] users = { { "", "", "" }, // 00 01 02
 				{ "", "", "" }, // 10 11 12
 				{ "", "", "" } // 20 21 22
 		};
+		int num=0;
 		do {
 			System.out.println(Arrays.deepToString(users));
-			menu();
-			switch (num) {
+			num = menu();
+			switch (menu()) {
 			case 1:
 				input(users);
 				break;
@@ -44,16 +34,19 @@ public class Bank007 {
 		} while (num != 9);
 	}
 
-	public static void menu() {
-		
+	public static int menu() {
+		int num=0;
+		Scanner scanner = new Scanner(System.in);
 		System.out.println("=====Bank=====");
 		System.out.println("1.추가\n" + "2.조회\n" + "3.입금\n" + "4.출금\n" + "5.삭제\n" + "9.종료");
 		System.out.print("입력 >>");
 		num = scanner.nextInt();
+		return num;
 	}
 
 	public static void input(String[][] users) {
-		cnt = -1;
+		int cnt = -1;
+		Scanner scanner = new Scanner(System.in);
 		for (int i = 0; i < users.length; i++) {
 			if (users[i][0].equals("")) {
 				cnt = i;
@@ -70,10 +63,15 @@ public class Bank007 {
 		} else {
 			System.out.println("더 이상 신규가입이 불가능합니다.");
 		}
-
 	}
 
 	public static void show(String[][] users) {
+		Scanner scanner = new Scanner(System.in);
+		String id_ck = "";
+		String pass_ck = "";
+		boolean chk=true;
+		int count =0;
+		
 		System.out.println("*Id : ");
 		id_ck = scanner.next();
 		System.out.println("*Pass : ");
@@ -82,6 +80,7 @@ public class Bank007 {
 			if (id_ck.equals(users[i][0]) && pass_ck.equals(users[i][1])) {
 				chk = true;
 				count = i;
+				break;
 			}
 		}
 		if (chk) {
@@ -89,16 +88,22 @@ public class Bank007 {
 			System.out.println("아이디 : " + users[count][0] + "\n" + "암호 : " + users[count][1] + "\n" + "잔액 : "
 					+ users[count][2] + "\n" + "조회가 성공했습니다.");
 			System.out.println("아무키나 누르세요.");
-			back = scanner.next();
+			scanner.next();
 			chk = false;
 		} else {
 			System.out.println("조회가 실패했습니다." + "\n아무키나 누르세요");
-			back = scanner.next();
+			scanner.next();
 		}
-
 	}
 
 	public static void deposit(String[][] users) {
+		Scanner scanner = new Scanner(System.in);
+		String id_ck = "";
+		String pass_ck = "";
+		boolean chk=true;
+		int count =0;
+		int plus =0;
+		
 		System.out.println("입금 계좌정보 입력");
 		System.out.println("*ID : ");
 		id_ck = scanner.next();
@@ -108,6 +113,7 @@ public class Bank007 {
 			if (id_ck.equals(users[i][0]) && pass_ck.equals(users[i][1])) {
 				chk = true;
 				count = i;
+				break;
 			}
 		}
 		if (chk) {
@@ -121,8 +127,14 @@ public class Bank007 {
 		}
 
 	}
-
 	public static void withdraw(String[][] users) {
+		Scanner scanner = new Scanner(System.in);
+		String id_ck = "";
+		String pass_ck = "";
+		boolean chk=true;
+		int count =0;
+		int minus =0;
+		
 		System.out.println("출금 계좌정보 입력");
 		System.out.println("*ID : ");
 		id_ck = scanner.next();
@@ -132,6 +144,7 @@ public class Bank007 {
 			if (id_ck.equals(users[i][0]) && pass_ck.equals(users[i][1])) {
 				chk = true;
 				count = i;
+				break;
 			}
 		}
 		if (chk) {
@@ -149,6 +162,14 @@ public class Bank007 {
 	}
 
 	static void delete(String[][] users) {
+		Scanner scanner = new Scanner(System.in);
+		String id_ck = "";
+		String pass_ck = "";
+		boolean chk=true;
+		int count =0;
+		int plus =0;
+		char key = ' ';
+		
 			System.out.println("*ID : ");
 			id_ck = scanner.next();
 			System.out.println("*Pass : ");
@@ -157,6 +178,7 @@ public class Bank007 {
 				if (id_ck.equals(users[j][0]) && pass_ck.equals(users[j][1])) {
 					chk = true;
 					count = j;
+					break;
 				}
 			}
 			if (chk) {

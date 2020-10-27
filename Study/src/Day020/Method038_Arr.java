@@ -14,12 +14,12 @@ public class Method038_Arr {
 		int rank[] = { 1, 1, 1, 1, 1 };
 		String pass[] = new String[5];
 		String jang[] = { "", "", "", "", "" };
-		String star[] = { "", "", "", "", "" };
+		String star[] = { "", "", "", "", "" }; 
 
 		// 1)process_aver - 평균 구하기
 		for (int i = 0; i < size; i++) {
-			avg[i] = process_avg(kor[i], eng[i], mat[i]);
-		}
+			avg[i] = process_avg(kor[i], eng[i], mat[i]); 
+		} 
 		// 2)process_rank - 등수 구하기
 		process_rank(size, avg, rank);
 		// 3)process_scholar - 장학생 95점이상
