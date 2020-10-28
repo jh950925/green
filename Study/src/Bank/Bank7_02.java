@@ -4,7 +4,7 @@ import java.util.Arrays;
 import java.util.Calendar;
 import java.util.Scanner;
 
-public class Bank7_02 {
+public class Bank7_02 { 
 	private static int num = 0;
 	private static int cnt = 0;
 	private static String id_ck = " ";

@@ -1,5 +1,5 @@
 package Silgi;
-
+ 
 public class Ex002_02 {
 
 	public static void main(String[] args) {

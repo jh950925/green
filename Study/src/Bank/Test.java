@@ -1,24 +1,30 @@
-package Bank;
-
-import java.util.Scanner;
-
-public class Test {
-    public static void main(String[] args) {
-     
-    	Scanner scanner = new Scanner(System.in);
-    	String num = "";
-    	
-    	for(;;) {
-    		System.out.print("num : ");
-    		num = scanner.next();
-    		if(num.indexOf("@") != -1) {
-    			System.out.println(num);
-    			break;
-    		}else {
-    			System.out.println();
-    			System.out.println("@를 입력해 주세요");
-    			System.out.println("========================");
-    		}
-    	}
-    }
-}
+//package Bank;
+//
+//import java.util.Scanner;
+//
+//public class Test {
+//    public static void main(String[] args) {
+//    	public static int cnt_ck(String users[][]) {
+//    		for (int i = 0; i < users.length; i++) {
+//				if (users[i][0].equals("")) {
+//					cnt = i;
+//				break;
+//				}
+//			}
+//    		return cnt;
+//    	}
+//    	
+//    	System.out.println("*Id : ");
+//		id_ck = scanner.next();
+//		System.out.println("*Pass : ");
+//		pass_ck = scanner.next();
+//		for (int i = 0; i < users.length; i++) {
+//			if (id_ck.equals(users[i][0]) && pass_ck.equals(users[i][1])) {
+//				chk = true;
+//				count = i;
+//				break;
+//			}
+//		}
+//		
+//    }
+//}
