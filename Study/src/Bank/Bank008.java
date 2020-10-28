@@ -6,6 +6,8 @@ class Bank_v1 {
 	// 멤버변수
 	String id;
 	String pass;
+	String id_ck;
+	String pass_ck;
 	double balance;
 	int plus;
 	int minus;
@@ -33,13 +35,12 @@ class Bank_v1 {
 		Scanner scanner = new Scanner(System.in);
 		if (cnt == 0) {
 			System.out.print("ID : ");
-			id = scanner.next();
+			this.id = scanner.next();
 			System.out.print("PASS: ");
-			pass = scanner.next();
+			this.pass = scanner.next();
 			System.out.print("BALANCE : ");
-			balance = scanner.nextDouble();
+			this.balance = scanner.nextDouble();
 			cnt++;
-			System.out.println(cnt);
 		}else {
 			System.out.println("계정을 삭제해 주세요");
 		}
@@ -50,14 +51,16 @@ class Bank_v1 {
 		Scanner scanner = new Scanner(System.in);
 		System.out.println("====조회결과====");
 		System.out.print("ID : ");
-		id = scanner.next();
+		this.id_ck = scanner.next();
 		System.out.print("PASS: ");
-		pass = scanner.next();
+		this.pass_ck = scanner.next();
 		if(cnt != 0) {
-			if (this.id.equals(id) && this.pass.equals(pass)) {
-				System.out.println("아이디 : " + this.id + "\n" + "암호 : " + this.pass + "\n" + "잔액 : " + this.balance + "\n"
-						+ "조회가 성공했습니다.");
-				System.out.println(cnt);
+			if (this.id.equals(this.id_ck) && this.pass.equals(this.pass_ck)) {
+				System.out.println("아이디 : " + this.id 
+						+ "\n" + "암호 : " + this.pass 
+						+ "\n" + "잔액 : " + this.balance 
+						+ "\n" + "회사 : " + Bank_v1.Company
+						+ "\n" + "조회가 성공했습니다.");
 			} else {
 				System.out.println("계좌 정보가 없습니다.");
 			}
@@ -72,13 +75,13 @@ class Bank_v1 {
 		Scanner scanner = new Scanner(System.in);
 		System.out.println("==== 입금 계좌정보 입력 ====");
 		System.out.print("ID : ");
-		this.id = scanner.next();
+		this.id_ck = scanner.next();
 		System.out.print("PASS: ");
-		this.pass = scanner.next();
+		this.pass_ck = scanner.next();
 		System.out.print("입금액 : ");
 		this.plus = scanner.nextInt();
 		if(cnt == 1) {
-			if (this.id.equals(id) && this.pass.equals(pass)) {
+			if (this.id.equals(this.id_ck) && this.pass.equals(this.pass_ck)) {
 				if (this.plus > 0) {
 					this.balance += this.plus;
 				}
@@ -93,13 +96,13 @@ class Bank_v1 {
 		Scanner scanner = new Scanner(System.in);
 		System.out.println("==== 출금 계좌정보 입력 ====");
 		System.out.print("ID : ");
-		this.id = scanner.next();
+		this.id_ck = scanner.next();
 		System.out.print("PASS: ");
-		this.pass = scanner.next();
+		this.pass_ck = scanner.next();
 		System.out.print("출금액 : ");
 		this.minus = scanner.nextInt();
 		if(cnt == 1) {
-			if (this.id.equals(id) && this.pass.equals(pass)) {
+			if (this.id.equals(this.id_ck) && this.pass.equals(this.pass_ck)) {
 				if (this.minus <= this.balance) {
 					this.balance -= this.minus;
 				}
@@ -113,12 +116,12 @@ class Bank_v1 {
 	public void delete() {
 		Scanner scanner = new Scanner(System.in);
 		System.out.print("ID : ");
-		this.id = scanner.next();
+		this.id_ck = scanner.next();
 		System.out.print("PASS: ");
-		this.pass = scanner.next();
+		this.pass_ck = scanner.next();
 		System.out.print("삭제 하시겠습니까?(Y/N) : ");
 		this.key = scanner.next().charAt(0);
-		if (this.id.equals(id) && this.pass.equals(pass) && cnt ==1) {
+		if (this.id.equals(this.id_ck) && this.pass.equals(this.pass_ck) && cnt ==1) {
 			this.id = "";
 			this.pass = "";
 			this.balance = 0.0;
@@ -137,6 +140,8 @@ class Bank_v1 {
 		this.plus = 0;
 		this.minus = 0;
 		this.key = ' ';
+		this.id_ck =" ";
+		this.pass_ck =" ";
 	}
 }
 
