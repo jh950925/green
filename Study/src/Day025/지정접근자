@@ -1,0 +1,27 @@
+==================================================================
+ㅁ 지정접근자 p.348
+
+1.클래스 : DTO(Data Transfer Object) / DAO(Data Access Object)
+	DTO : 데이터를 전달 못적으로 설계된 클래스
+	DAO : 데이터(DB) 접근을 목적으로 설계된 클래스 
+		- CRUD(Create(insert), Read(select), Update(update), Delete(delete))
+	Interface : 설계도 
+	Abstract  : 설계도 + 클래스
+	
+2.접근제어자 종류 
+	public    : 누구나 접근 가능, 공개
+	protected : 같은 패키지(폴더)에 있는 객체와 상속관계의 객체들만 접근 가능 
+	package   : 같은 패키지(폴거)에 있는 객체, 생략하면 기본값
+	private   : 해달클래스 내에서만 접근 가능, 비공개
+	
+3.접근제어자의 사용 범위
+		클래스내부 동일패키지 하위클래스 그 외
+public     O	   O      O      O
+protected  O       O      O      X
+package    O       O      X      X
+private    O       X      X      X 
+
+[public > protected > package > private]
+
+4.getter , setter
+	- private 속석으로 멤버변수를 각각 개별적으로 접근 가능하게 만들어줌.
