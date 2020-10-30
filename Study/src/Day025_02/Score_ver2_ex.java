@@ -1,6 +1,7 @@
 package Day025_02;
 
 public class Score_ver2_ex {
+	
 
 	Score_ver2 a = new Score_ver2();
 	
@@ -49,4 +50,5 @@ public class Score_ver2_ex {
 				+ "\t" + String.format("%.2f", iron.getAver()) + "\t" + iron.getP() + "\t" + iron.getS() + "\t" + iron.getRank() + "\t");
 	
 	}
+	
 }
