@@ -7,6 +7,7 @@ import Day026_Class.ClassArr007_dicQuestion;
 public class ClassArr007 {
 
 	public static void main(String[] args) {
+		
 		ClassArr007_MyDictionary [] words = new ClassArr007_MyDictionary[]
 		{
 			new ClassArr007_MyDictionary("television"), new ClassArr007_MyDictionary("computer"),

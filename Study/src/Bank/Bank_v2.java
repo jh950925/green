@@ -11,29 +11,6 @@ public class Bank_v2 {
 	private char key;
 	private static String Company = "(주) 하랑";
 	private int num;
-//	static Bank_Controller bank_c = new Bank_Controller();
-
-	// 멤버함수
-//	public void menu() {
-//		Bank_Controller user1 = new Bank_Controller();
-//		int num = 0;
-//		do{
-//			num = user1.menu();
-//			switch (num) {
-//			case 1:
-//			bank_c.input(); break;
-//			case 2:
-//			bank_c.show(); break;
-//			case 3:
-//			bank_c.deposit(); break;
-//			case 4:
-//			bank_c.withdraw(); break;
-//			case 5:
-//			bank_c.delete(); break;
-//			}
-//		}while( num != 9);
-//		
-//	}
 
 	@Override
 	public String toString() {
