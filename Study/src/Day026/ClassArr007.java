@@ -13,11 +13,12 @@ public class ClassArr007 {
 			new ClassArr007_MyDictionary("television"), new ClassArr007_MyDictionary("computer"),
 			new ClassArr007_MyDictionary("mouse"), new ClassArr007_MyDictionary("phone")
 		};
+		
 		ClassArr007_dicQuestion question = new ClassArr007_dicQuestion();
 		question.ClassArr007_dicQuestion(words);
 		
 		ClassArr007_MyDictionaryShow print = new ClassArr007_MyDictionaryShow();
 		print.show(words);
-	}
+	} 
 
 }

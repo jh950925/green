@@ -20,7 +20,7 @@ public class ClassArr007_dicQuestion {
 				char mix = chk[j];
 				chk[j] = chk[random];
 				chk[random] = mix;
-			}
+			} 
 			System.out.print("Q" + words[i].getDno() + ". ");
 			for (int j = 0; j < chk.length; j++) {
 				System.out.print(chk[j]);

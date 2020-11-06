@@ -10,7 +10,7 @@ class MoblieNote7 {
 	}
 	public String getIris() {
 		return iris;
-	}
+	} 
 	public void setIris(String iris) {
 		this.iris = iris;
 	}

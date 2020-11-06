@@ -15,7 +15,7 @@ public class Day010_1 {
 			result = "1이다.";
 		} else if (num == 2) {
 			result = "2이다.";
-		} else if (num == 3) {
+		} else if (num == 3) { 
 			result = "3이다.";
 		} else {
 			result = "유효하지 않은 숫자입니다.";

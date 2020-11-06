@@ -22,7 +22,7 @@ public class Class031_1_package_외부 {
 		System.out.println("package : 패키지(폴더) = " +r1.getC_package());
 		System.out.println("private : 클래스 내에서만 = "+r1.getA_private());
 		
-		
+		 
 		
 	}
 }

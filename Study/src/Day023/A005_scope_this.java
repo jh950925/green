@@ -6,7 +6,7 @@ class Coffee004 {
 	// 멤버변수
 	String[] coffeeName;
 	int[] coffeeprice;
-	
+	 
 	int price;
 	int num; 
 	String name;

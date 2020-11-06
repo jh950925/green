@@ -12,7 +12,7 @@ public class Ex001 {
 		System.out.println(a/b);	//3
 		System.out.println(a%b);	//1
 		
-		
+		 
 		
 //		2) 비교(관계) 연산자		>, <, <=, >=, ==, true / false (제어문)
 		System.out.println(a > b);	//초과 true

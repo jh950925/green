@@ -17,7 +17,7 @@ public class ClassArr001 {
 		a1.setName("Sally");
 		a1.setAge(10);
 		System.out.println(a1);
-		
+		 
 		
 //		[2] 클래스배열
 //		int [] a = new int[3];

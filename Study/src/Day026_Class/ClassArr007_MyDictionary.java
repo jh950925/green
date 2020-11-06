@@ -1,6 +1,6 @@
 package Day026_Class;
 
-public class ClassArr007_MyDictionary {
+public class ClassArr007_MyDictionary { 
 	static int dno_count = 0;	// 해당 번호를 자동으로 카운트 하는 static 변수
 	static int trueAnswer = 0; 	// 맞춘 답변 개수를 카운트하는 static 변수
 	private int dno;			// 각 해당 번호

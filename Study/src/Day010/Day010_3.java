@@ -10,7 +10,7 @@ public class Day010_3 {
 			System.out.print(" " + i);
 		}
 
-		System.out.println("\n");
+		System.out.println("\n"); 
 		System.out.println("[while]");
 		i = 1;
 		while (i < 6) {
