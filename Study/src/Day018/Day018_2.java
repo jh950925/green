@@ -13,7 +13,7 @@ public class Day018_2 {
 			}
 			data=200;
 		}
-		
+		 
 		
 		for(int i=0;i<num.length;i++) {
 			for(int j=0; j<num[i].length;j++) {

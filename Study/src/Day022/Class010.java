@@ -12,7 +12,7 @@ class TV002 {
 		System.out.println("TV채널 : " + this.channel);
 		System.out.println("TV볼륨 : " + this.volume);
 	}// end show
-
+ 
 	//생성자 => 기본생성자가 단독으로 있으면 자동으로 호출
 	TV002() {
 

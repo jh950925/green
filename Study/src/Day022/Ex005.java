@@ -8,7 +8,7 @@ class Student003 {
 
 	// 멤버함수
 	public int getTotal() {
-		this.total = this.kor + this.eng + this.math;
+		this.total = this.kor + this.eng + this.math; 
 		return total;
 	}
 

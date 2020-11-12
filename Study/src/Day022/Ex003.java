@@ -7,7 +7,7 @@ class Student001{
 	
 	//멤버함수
 	@Override
-	public String toString() {
+	public String toString() { 
 		String result ="";
 		result = ("[name="+this.name
 				+", ban="+this.ban
