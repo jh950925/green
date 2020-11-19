@@ -1,0 +1,9 @@
+[제네릭스]
+
+1.정의
+    - 컬렉션등의 집합클래스에서 사용할 객체를 미리 명시해 주는것
+	- 타입 안전성을 제공
+
+2.사용법
+	ArrayList<객체타입>  list = new ArrayList<객체타입>();
+	ArrayList<Integer> list = new ArrayList<Integer>();

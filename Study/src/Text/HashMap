@@ -1,0 +1,5 @@
+List : 순서O, 중복허용O - add, get, size, remove
+
+Set  : 순서X, 중복허용X - add, get(x : Iterator), size, remove
+
+Map  : (Key,value)   - add(X : put), get(key), size, remove

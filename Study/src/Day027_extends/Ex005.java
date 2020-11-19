@@ -7,7 +7,6 @@ class SutdaDeck
 	
 	SutdaDeck() 
 	{
-		
 		for(int i =0;i<CARD_NUM/2;i++)//0~9까지
 		{
 			cards[i] = new SutdaCard(i+1 ,false);
@@ -17,7 +16,6 @@ class SutdaDeck
 			}
 			
 		}
-		
 		for(int i = 10; i<CARD_NUM; i++) //10~20까지
 		{
 			cards[i] = new SutdaCard(i%10+1 ,false);
