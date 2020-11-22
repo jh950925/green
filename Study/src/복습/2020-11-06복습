@@ -1,0 +1,38 @@
+1. OOP(Object Oriented Program)
+
+2. 상속(재활용), 캡슐화(정보보호:private), 다형성(다양한 형태 Object)
+
+3. 초기화를 시켜준다. 
+
+4. 
+	- 인스턴스변수 : a =>Heap
+	
+	- 지역변수 : A11(int a)에 있는 a, show2()에 있는 int a =>Stack
+	
+	- 인스턴스메서드 : show(),show2() => Heap
+	
+	- 클래스메서드 : classMethod() => Method
+	
+	-Runtime Data Area : Method, Heap, Stack, Pc Register, Native Method
+	
+5. int show2() { int a; return a;}에서 a가 지역변수인데 int a=0이라고 초기화를 안시켰다.
+
+6.  
+	6-1 : Class Loader, Execution Engine, Garbage Collector
+	6-2 : Method 
+	6-3 : Heap
+	6-4 : Stack
+	
+7. private => package => protected => public
+
+8. 	public int getNo() { return no; }
+	public void setNo(int no) { this.no = no; }
+ 	public String getEmail() { return email; }
+	public void setEmail(String email) { this.email = email; }
+
+9. implements
+
+10. public void eat()에 있는 name="아이유"가 오류가 난다.
+	=> 변경할 수 없는 값
+
+

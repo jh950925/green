@@ -1,0 +1,71 @@
+ver-1
+[java파일]A.java
+		|--------------------------javac.exe
+	[class파일]A.class
+		|--------------------------
+================================================================
+[Class Loader]		[Execution]		[Garbage Collector]
+--------------------------
+[Runtime Data Area]
+[Method	| Heap		| stack	| Pc Resiter	| Native Method Stack]
+[클래스변수	| 인스턴스변수	| 지역변수	| 쓰레드			| Native Method Stack]
+--------------------------
+p.261
+Method Area : 클래스의 이름, 메서드의 이름, type정보(interface, class),
+			  constant pool (상수풀 : 문자, 상수, 타입, 필드, 객체 참조저장), static 변수 , final class 생성되는 영역
+
+Heap Area	: new 키워드로 생성된 객체와 배열이 생성되는 영역
+
+stck Area	: 지역변수, 파라미터, 리턴값, 연산에 사용되는 임시값들이 생성되는 영역
+================================================================
+	A a = new A();
+	1. A a : (Runtime Data Area - stack)영역에 생성
+	2. new로 생성된 A 클래스의 인스턴스는 (Runtime Data Area - Heap) 영역에 생성
+
+
+
+===================================================================
+ver-2 변수의 유효범위
+	-해당변수를 사용할 수 있는 범위
+	1)클래스 변수(Static)
+		선언위치 : stack 영역 (클래스 여역)
+		생성시기 : (붕어빵틀)클래스가 메모리에 올라갈때
+	2)인스턴스 변수
+		선언위치 : heap영역
+		생성시기 : (붕어빵)인스턴스가 생성될때
+	3)지역변수
+		선언위치 : 메서드, 생성자 블럭내부
+		생성시기 : 변수선언문이 실행될때
+	==============================
+	class A{
+		int a;						//(1)
+		static String company;		//(2)
+		void method(){
+			int a = 0;				//(3)
+		}
+	}
+	==============================
+	1.인스턴스 변수 : a;(1) 
+	2.클래스변수	: Company(2)
+	3.지역변수		: a(3)
+	
+	※멤버함수 : 해당클래스 내에서 사용가능, 멤버함수는 클래스내에 있으므로 멤버변수접근이 가능함.
+	
+ver-3(this)
+	-해당객체를 지정하는 키워드
+	-멤버변수와 지역변수를 구분하기 위해 사용됨.
+	-this() 생성자는 this멤버변수보다 위에 와야함.
+	
+	Alt + shift + s
+	eclipse -> 오른쪽 마우스 -> source -> generate constructor from superclass 
+	eclipse -> 오른쪽 마우스 -> source -> generate constructor using filed 
+	
+	
+	
+	
+	
+	
+	
+	
+	
+		
