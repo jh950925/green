@@ -54,6 +54,13 @@ public class Main {
 		panel[2].add(btn[2]);
 		panel[2].add(btn[3]);
 		panel[2].add(btn[4]);
+		btn[1].addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				new Pro_Create().show();
+				frame.dispose();
+			}
+		});
 		//panel[3] 셋팅
 		panel[3].setLayout(new FlowLayout());
 		panel[3].add(btn[5]);

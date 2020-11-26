@@ -7,18 +7,20 @@ import java.awt.event.ActionListener;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
+import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
+import javax.swing.JTextField;
 
 public class UserUpdate {
 	JFrame frame;
 	JButton[] btn;
 	JPanel[] panel;
 	JTable table; 
-	Object[] columnNames; 
-	Object[][] rowData; 
-	JScrollPane scpane;
+	JLabel[] label;
+	JTextField[] text;
+
 	
 	public UserUpdate() {
 		frame = new JFrame();
@@ -26,16 +28,30 @@ public class UserUpdate {
 		btn[0] = new JButton("수정");
 		btn[1] = new JButton("계정삭제");
 		btn[2] = new JButton("홈");
+		label = new JLabel[] {
+				new JLabel("이름")
+				,new JLabel("id")
+				,new JLabel("password")
+				,new JLabel("password확인")
+				,new JLabel("이메일")
+				,new JLabel("전화번호")
+				,new JLabel("생년월일")
+				,new JLabel("사원번호")};
+		text = new JTextField[] {
+				new JTextField()
+				,new JTextField()
+				,new JTextField()
+				,new JTextField()
+				,new JTextField()
+				,new JTextField()
+				,new JTextField()
+				,new JTextField()};
 		panel = new JPanel[] {
 				new JPanel(),
 				new JPanel(),
 				new JPanel(),
 				new JPanel()
 		};
-		columnNames = new String[] { "No", "NAME" ,"Price"};
-		rowData = new Object[][] {{1,"김준형1",100},{2,"김준형2",200},{3,"김준형3",300} };
-		table = new JTable(rowData, columnNames);
-		scpane = new JScrollPane(table);
 	}
 	public void show() {
 		//panel[0]
@@ -56,7 +72,23 @@ public class UserUpdate {
 		panel[2].add(panel[0]);
 		panel[2].add(panel[1]);
 		//panel[3]
-		panel[3].add(scpane);
+		panel[3].setLayout(new GridLayout(8,2));
+		panel[3].add(label[0]);
+		panel[3].add(text[0]);
+		panel[3].add(label[1]);
+		panel[3].add(text[1]);
+		panel[3].add(label[2]);
+		panel[3].add(text[2]);
+		panel[3].add(label[3]);
+		panel[3].add(text[3]);
+		panel[3].add(label[4]);
+		panel[3].add(text[4]);
+		panel[3].add(label[5]);
+		panel[3].add(text[5]);
+		panel[3].add(label[6]);
+		panel[3].add(text[6]);
+		panel[3].add(label[7]);
+		panel[3].add(text[7]);
 		//frame 셋팅
 		frame.add(panel[2]);
 		frame.add(panel[3]);
