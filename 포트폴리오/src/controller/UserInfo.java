@@ -9,7 +9,7 @@ public class UserInfo {
 	private String phno;
 	private String userDate;
 	private String UserNo;
-	//여기가 그 정보 가지고 있는 클래스 네네 
+	//여기가 그 정보 가지고 있는 클래스 네네 ㅇㅇ
 	///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 	public UserInfo() { super(); }
 	public UserInfo(String name, String id, String pass, String pass_chk, String mail, String phno, String userDate, String userNo) {
