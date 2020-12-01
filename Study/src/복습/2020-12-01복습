@@ -1,0 +1,76 @@
+Q1) block < extent < segment < tablespace < database
+
+Q2) DDL : create, drop, alter, truncate
+	DML : select, insert, update, commit, rollback, delete
+	DCL : grant, revoke
+	
+Q3) create tablespace myt3 datafile 'D:\study\File\myt3.dbf' size 100m autoextend on next 5m;
+
+Q4) select tablespace_name from dba_tablespaces;
+
+Q5) create user O3 identified by 3333 default tablespace myt3 temporary tablespace temp;
+
+Q6) grant dba to o3;
+
+Q7) conn o3/3333;
+
+Q8) show user;
+
+Q9) revoke dba from o3;
+
+Q10) conn system/비밀번호
+	 grant dba to o3;
+	 conn o3/3333;
+	 
+Q11) create table emp(
+						empno number(4),
+						ename varchar2(10),
+						job varchar2(9),
+						mgr number(2),
+						hiredate date,
+						sal number(7,2),
+						comm number(7,2),
+						deptno number(2)						
+					  );
+
+Q12) create table dept (
+						deptno number(2),
+						ename varchar2(14),
+						loc varchar(13)
+						);
+						
+Q13) create table bonus(
+						ename varchar2(10),
+						job varchar2(9),
+						sal number,
+						comm number
+						); 		
+						
+Q14) create table salgrade(
+						grade number,
+						losal number,
+						hisal number
+						); 		
+						
+						
+
+						
+	  
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			

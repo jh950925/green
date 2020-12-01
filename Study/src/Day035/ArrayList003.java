@@ -7,10 +7,7 @@ import javax.swing.JOptionPane;
 class UserInfo{
 	private String name;
 	private int age;
-	public UserInfo() {
-		this.name=name;
-		this.age =age;
-	}
+	public UserInfo() { }
 	public UserInfo(String name, int age) {
 		super();
 		this.name = name;

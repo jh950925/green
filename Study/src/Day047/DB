@@ -1,0 +1,186 @@
+유저 삭제
+
+drop user 유저명
+select username from dba_users;
+
+Q1)유저만들고 확인하기 test/test
+	create user test identified by test;
+Q2)유저 삭제하기
+	drop user; 
+	drop user 유저명 case
+	select username, drfault_tablespace, temporary_tablespace
+	from UDBA_USERS;
+=====================================================================================
+SQL> desc t_alter;
+ Name                                      Null?    Type
+ ----------------------------------------- -------- ----------------------------
+ CNO                                                VARCHAR2(10)
+ CNAME                                              VARCHAR2(10)
+ CDATE
+ 
+ 
+ 1. cprice number 컬럼추가
+ 	alter table t_alter add cprice number;
+ 2. cprice 컬럼삭제
+ 	alter table t_alter drop column cprice;
+ 3. cno 컬럼명을 cid로 변경
+ 	alter table t_alter rename column cno to cid;
+ 4. 컬럼 자료형 cname varchar2(30)으로 자료형 변경
+ 	alter table t_alter modify cname varchar2(30);
+ 
+ =====================================================================================
+[add, drop, modify, rename]
+ㅁ 컬럼삽입
+	alter table 테이블명 add 컬럼명 자료형 옵션
+ㅁ 컬럼삭제
+	alter table 테이블명 drop column 컬럼명
+ㅁ 컬럼 자료형 수정
+	alter table 테이블명 modify 컬럼명 변경자료형
+ㅁ 컬럼명
+	alter table 테이블명 rename column 기본컬럼명 to 변경 컬럼명	
+ =====================================================================================
+ varchar => 가변형 (var)  :    
+ char    => 분자열 고정		:
+ =====================================================================================
+ ■ insert
+	ㅁ레코드 삽입
+		--전체필드 순서대로 삽입시
+		insert into 테이블이름 values (값,값);
+	
+		--일부분의 필드에만 데이터 삽입
+		insert into 테이블이름(컬럼명, 컬럼명,,,) values (값,값);
+		
+		
+		
+coffee테이블
+		
+1. insert into coffee values(1, 'ame', 1000);
+2. insert into coffee values('라떼', 2, 1000); => 순서 틀려서 안들어감
+3. insert into coffee (cno, cname, cpirce) values (2, 'latte' ,2000);
+4. insert into coffee (cno,cname) values (3, 'ame');
+
+ =====================================================================================
+[add, modify, drop, rename]
+
+       CNO CNAME                                        CPRICE
+---------- ---------------------------------------- ----------
+         1 ame                                            1000
+         2 latte                                          2000
+         3 ame
+         
+alter table coffee modify cno number not null;
+
+5. insert into coffee (cname, cprice) values ('ame',1000);  => 에러
+6. insert into coffee (cno, cname) values (4,'ame'); 
+
+       CNO CNAME                                        CPRICE
+---------- ---------------------------------------- ----------
+         1 ame                                            1000
+         2 latte                                          2000
+         3 ame
+         4 ame
+
+       CNO CNAME                                        CPRICE
+---------- ---------------------------------------- ----------
+         1 ame                                            1000
+         2 latte                                          2000
+         3 ame
+         4 ame
+         5 카푸치노                                       1500
+         6 바닐라라떼                                     2500
+
+alter table coffee modify cprice number not null; => 만약에 null값이 있으면 불가
+
+insert into coffee values (5, '카푸치노' ,1500);
+
+
+ EMPNO NUMBER(4),
+ ENAME VARCHAR2(10),
+ JOB VARCHAR2(9),
+ MGR NUMBER(4),
+ HIREDATE DATE,
+ SAL NUMBER(7,2),
+ COMM NUMBER(7,2),
+ DEPTNO NUMBER(2));
+ 
+
+     EMPNO ENAME      JOB              MGR HIREDATE        SAL       COMM
+---------- ---------- --------- ---------- -------- ---------- ----------
+    DEPTNO
+----------
+      7369 SMITH      CLERK           7902 80/12/17        800
+        20
+
+      7499 ALLEN      SALESMAN        7698 81/02/20       1600        300
+        30
+
+      7521 WARD       SALESMAN        7698 81/02/22       1250        500
+        30
+
+
+     EMPNO ENAME      JOB              MGR HIREDATE        SAL       COMM
+---------- ---------- --------- ---------- -------- ---------- ----------
+    DEPTNO
+----------
+      7566 JONES      MANAGER         7839 81/04/02       2975
+        20
+
+      7654 MARTIN     SALESMAN        7698 81/09/28       1250       1400
+        30
+
+      7698 BLAKE      MANAGER         7839 81/05/01       2850
+        30
+
+
+     EMPNO ENAME      JOB              MGR HIREDATE        SAL       COMM
+---------- ---------- --------- ---------- -------- ---------- ----------
+    DEPTNO
+----------
+      7782 CLARK      MANAGER         7839 81/06/09       2450
+        10
+
+      7788 SCOTT      ANALYST         7566 87/04/19       3000
+        20
+
+      7839 KING       PRESIDENT            81/11/17       5000
+        10
+
+
+     EMPNO ENAME      JOB              MGR HIREDATE        SAL       COMM
+---------- ---------- --------- ---------- -------- ---------- ----------
+    DEPTNO
+----------
+      7844 TURNER     SALESMAN        7698 81/09/08       1500          0
+        30
+
+      7876 ADAMS      CLERK           7788 87/05/23       1100
+        20
+
+      7900 JAMES      CLERK           7698 81/12/03        950
+        30
+
+
+     EMPNO ENAME      JOB              MGR HIREDATE        SAL       COMM
+---------- ---------- --------- ---------- -------- ---------- ----------
+    DEPTNO
+----------
+      7902 FORD       ANALYST         7566 81/12/03       3000
+        20
+
+      7934 MILLER     CLERK           7782 82/01/23       1300
+        10
+
+
+INSERT INTO EMP VALUES (7499,'ALLEN','SALESMAN',7698,'81/02/20',1600,300,30);
+INSERT INTO EMP VALUES (7521,'WARD','SALESMAN',7698,'81/02/22',1250,500,30);
+INSERT INTO EMP VALUES (7566,'JONES', 'MANAGER',7839,'81/04/02',2975,NULL,20);
+INSERT INTO EMP VALUES (7654,'MARTIN','SALESMAN',7698,'81/09/28',1250,1400,30);
+INSERT INTO EMP VALUES (7698,'BLAKE','MANAGER',7839,'81/05/01',2850,NULL,30);
+INSERT INTO EMP VALUES (7782,'CLARK','MANAGER',7839,'81/06/09',2450,NULL,10);
+INSERT INTO EMP VALUES (7788,'SCOTT','ANALYST',7566,'87/04/19',3000,NULL,20);
+INSERT INTO EMP VALUES (7839,'KING','PRESIDENT',NULL,'81/11/17',5000,NULL,10);
+INSERT INTO EMP VALUES(7844,'TURNER','SALESMAN',7698,'81/09/08',1500,0,30);
+INSERT INTO EMP VALUES (7876,'ADAMS','CLERK',7788,'87/05/23',1100,NULL,20);
+INSERT INTO EMP VALUES (7900,'JAMES','CLERK',7698,'81/12/03',950,NULL,30);
+INSERT INTO EMP VALUES (7902,'FORD','ANALYST',7566,'81/12/03',3000,NULL,20);
+INSERT INTO EMP VALUES (7934,'MILLER','CLERK',7782,'82/01/23',1300,NULL,10);
