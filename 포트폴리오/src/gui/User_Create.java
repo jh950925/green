@@ -1,44 +1,30 @@
-package 포트폴리오;
+package gui;
 
-import java.awt.GridLayout;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.util.Arrays;
+import java.util.ArrayList;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
 
-public class UserCreate{
+import controller.UserInfo;
+
+public class User_Create {
 	JFrame frame;
 	JButton btn;
 	JLabel[] label;
 	JTextField[] text;
-	UserInfo userInfo = new UserInfo();//지금은 테스트하려고 한명만 보고있는데 아 아직 리스트는 생각 안하고 있었어요 그냥 겍터 셋터만 해서 값 하나만 받아오는거 
-	 
-	public UserCreate() {
+//	그때 알려주신거로 해보려고 했는데 회원가입 파트가요
+	public User_Create() {
+		
 		frame = new JFrame("main");
 		btn = new JButton("등록");
-		label = new JLabel[] {
-				new JLabel("이름")
-				,new JLabel("id")
-				,new JLabel("password")
-				,new JLabel("password확인")
-				,new JLabel("이메일")
-				,new JLabel("전화번호")
-				,new JLabel("생년월일")
-				,new JLabel("사원번호")};
-		text = new JTextField[] {
-				new JTextField()
-				,new JTextField()
-				,new JTextField()
-				,new JTextField()
-				,new JTextField()
-				,new JTextField()
-				,new JTextField()
-				,new JTextField()};
+		label = new JLabel[] { new JLabel("이름"), new JLabel("id"), new JLabel("password"), new JLabel("password확인"),
+				new JLabel("이메일"), new JLabel("전화번호"), new JLabel("생년월일"), new JLabel("사원번호") };
+		text = new JTextField[] { new JTextField(), new JTextField(), new JTextField(), new JTextField(),
+				new JTextField(), new JTextField(), new JTextField(), new JTextField() };
 	}
+
 	public void show() {
 		frame.add(label[0]);//이름
 		frame.add(text[0]);
@@ -82,21 +68,7 @@ public class UserCreate{
 		//////////////////////////////////////////////
 		btn.setBounds(80, 330, 120, 30);
 		frame.add(btn);
-		btn.addActionListener(new ActionListener() {
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				frame.dispose();
-				userInfo.setName(text[0].getText());
-				userInfo.setId(text[1].getText());
-				userInfo.setPass(text[2].getText());
-				userInfo.setPass_chk(text[3].getText());
-				userInfo.setMail(text[4].getText());
-				userInfo.setPhno(text[5].getText());
-				userInfo.setUserDate(text[6].getText());
-				userInfo.setUserNo(text[7].getText());
-				System.out.println(userInfo);
-			}
-		});
+		
 		//frame 셋팅
 		frame.setLocation(500, 100);
 		frame.setLayout(null);
@@ -104,3 +76,4 @@ public class UserCreate{
 		frame.setSize(300, 420);
 	}
 }
+

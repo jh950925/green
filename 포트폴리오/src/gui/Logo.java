@@ -1,8 +1,7 @@
-package 포트폴리오;
+package gui;
 
 import java.awt.Dimension;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
+import java.util.ArrayList;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
@@ -12,16 +11,17 @@ import javax.swing.JPanel;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 
-class Gui_logo{
+import controller.UserInfo;
+
+class Logo{
 	JFrame frame;
 	JButton[] btn;
 	JPanel[] panel;
 	JLabel[] label;
 	JTextField text;
 	JPasswordField passtext;
-	UserInfo userinfo;
-	public Gui_logo(){
-		userinfo = new UserInfo();
+	
+	public Logo(){
 		///////////////////
 		frame = new JFrame();
 		text = new JTextField();
@@ -42,10 +42,7 @@ class Gui_logo{
 							  new JLabel("ID"),
 							  new JLabel("PASS")};
 	}
-//	btn[0]   - 회원가입   btn[1]   - 계정찾기
-//	btn[2]   - 로그인		btn[3]   - 종료
-//	label[0] - 회사명		label[0] - 이미지
-//	label[0] - id		label[0] - pass
+
 	public void show() {
 		//panel 셋팅
 		//0
@@ -83,44 +80,6 @@ class Gui_logo{
 		btn[2].setBounds(135, 180, 100, 25);
 		btn[3].setBounds(15, 220, 220, 25);
 		///////////////////////////////////////////////////
-		//회원가입
-		btn[0].addActionListener(new ActionListener() {
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				new UserCreate( ).show();
-			}
-		});
-		//계정찾기
-		btn[1].addActionListener(new ActionListener() {
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				new UserFind().show();
-			}
-		});
-		//로그인
-		btn[2].addActionListener(new ActionListener() {
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				System.out.println("1 : " + userinfo);
-				System.out.println("2 : " + userinfo.getPass());
-				System.out.println("3 : " + userinfo.getId());
-				//왜 회원가입에서는 조회가 가능한데 로고에서 받아오는건 안될까???
-//				if(text.getText().equals(userInfo.getId()) && passtext.getPassword().equals(userInfo.getPass())) {
-					new Main().show();
-					frame.dispose();
-//				}else {
-//					JOptionPane.showMessageDialog(null, "계정을 다시 확인해 주세요");
-//				}
-			}
-		});
-		//종료
-		btn[3].addActionListener(new ActionListener() {
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				System.exit(0);
-			}
-		});
-		///////////////////////////////////////////////////
 		//frame 셋팅
 		frame.setLayout(null);
 		frame.add(panel[0]);
@@ -130,11 +89,5 @@ class Gui_logo{
 		frame.setLocationRelativeTo(null);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.setResizable(false);
-	}
-}
-
-public class logo {
-	public static void main(String[] args) {
-		new Gui_logo().show();
 	}
 }
