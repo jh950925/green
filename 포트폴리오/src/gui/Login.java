@@ -16,7 +16,6 @@ public class Login {
 	JPanel[] panel;
 	JButton[] btn;
 	JTextArea area;
-	//선생님 사진찍어야할꺼같아요..
 	public Login() {
 		frame = new JFrame();
 		panel = new JPanel[] {

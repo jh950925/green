@@ -1,13 +1,9 @@
 package gui;
 
-import java.util.ArrayList;
-
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
-
-import controller.UserInfo;
 
 public class User_Create {
 	JFrame frame;

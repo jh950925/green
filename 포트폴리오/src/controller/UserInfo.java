@@ -1,5 +1,7 @@
 package controller;
 
+import javax.swing.JTextField;
+
 public class UserInfo {
 	private String name;
 	private String id;
@@ -9,9 +11,7 @@ public class UserInfo {
 	private String phno;
 	private String userDate;
 	private String UserNo;
-	//여기가 그 정보 가지고 있는 클래스 네네 ㅇㅇ
 	///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-	public UserInfo() { super(); }
 	public UserInfo(String name, String id, String pass, String pass_chk, String mail, String phno, String userDate, String userNo) {
 		this.name = name;
 		this.id = id;
@@ -21,10 +21,6 @@ public class UserInfo {
 		this.phno = phno;
 		this.userDate = userDate;
 		this.UserNo = userNo;
-	}
-
-	public UserInfo(UserInfo userinfo) {
-		this();
 	}
 	///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 	// name
@@ -58,12 +54,10 @@ public class UserInfo {
 	// userNo
 	public String getUserNo() { return UserNo; } 
 	public void setUserNo(String userNo) { UserNo = userNo; }
-
 	///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 	@Override
 	public String toString() {
 		return "UserInfo [name=" + name + ", id=" + id + ", pass=" + pass + ", pass_chk=" + pass_chk + ", mail=" + mail
 				+ ", phno=" + phno + ", userDate=" + userDate + ", UserNo=" + UserNo + "]";
 	}
-
 }
