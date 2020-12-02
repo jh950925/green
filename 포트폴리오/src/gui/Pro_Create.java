@@ -75,7 +75,7 @@ public class Pro_Create {
 		panel[2].setLayout(null);
 		panel[2].setBounds(0, 0, 400, 500);
 		
-		//label
+		///label
 		panel[2].add(label[0]);
 		label[0].setBounds(10, 10, 70, 25);
 		panel[2].add(label[1]);

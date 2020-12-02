@@ -10,7 +10,6 @@ public class User_Create {
 	JButton btn;
 	JLabel[] label;
 	JTextField[] text;
-//	그때 알려주신거로 해보려고 했는데 회원가입 파트가요
 	public User_Create() {
 		
 		frame = new JFrame("main");

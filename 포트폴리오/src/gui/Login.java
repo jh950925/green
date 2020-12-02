@@ -40,7 +40,7 @@ public class Login {
 		panel[0].add(btn[0]);
 		btn[0].setBounds(10, 320, 230, 30);
 		
-		//panel[1] 셋팅
+		///panel[1] 셋팅
 		panel[1].setLayout(null);
 		panel[1].setBounds(260, 0, 350, 400);
 		

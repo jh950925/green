@@ -22,7 +22,7 @@ class Logo{
 	JPasswordField passtext;
 	
 	public Logo(){
-		///////////////////
+		////////////////////
 		frame = new JFrame();
 		text = new JTextField();
 		passtext = new JPasswordField();

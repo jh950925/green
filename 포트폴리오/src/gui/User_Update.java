@@ -1,7 +1,6 @@
 package gui;
 
 import java.awt.Color;
-import java.util.ArrayList;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -10,7 +9,6 @@ import javax.swing.JPanel;
 import javax.swing.JTable;
 import javax.swing.JTextField;
 
-import controller.UserInfo;
 
 public class User_Update {
 	JFrame frame;
