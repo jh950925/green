@@ -1,0 +1,55 @@
+////////////////////////////////////////////////////////////////////////////
+ㅁ SEQUENCE
+--자동증가
+--순차적으로 값을 증감하여 내부적으로 유일한 값을 만듦.
+////////////////////////////////////////////////////////////////////////////
+A.시퀀스 만들기
+	create squence 시퀀스이름
+	[start with 시작값]
+	[increment by 증가치]
+	[maxvalue 최대값]  
+	[minvalue 최대값]
+	[cycle | nocycle]  
+	[cache | nocache];  
+
+B.시퀀스 수정
+	alter sequence 시퀀스이름
+	
+C.시퀀스 삭제
+	drop sequence 시퀀스이름
+	
+D.사용법
+	시퀀스이름.nextval  => 다음에 나올번호(다음 숫자 증가)
+	시퀀스이름.currval  => 현재까지 생성된 번호, 마지막 번호를 보여줌
+	
+////////////////////////////////////////////////////////////////////////////
+1.시퀀스 만들기 
+	create table seq1_t (no number not null primary key);
+	create sequence seq1;
+	
+2.시퀀스확인
+	desc seq1_t;
+	select sequence_name from user_sequences;
+	/*
+		SQL> select sequence_name from user_sequences;
+		SEQUENCE_NAME
+		------------------------------------------------------------
+		SEQ1
+	*/
+	
+3.사용 (seq1.nextval 다음 숫자 증가)
+	insert into seq1_t values (seq1.nextval);
+	select seq1.currval from dual; --현재까지 생성된 번호, 가장 마지막에 번호 보여줌
+	
+	
+4.현재 시퀀스 확인
+////////////////////////////////////////////////////////////////////////////
+update 테이블명 set 필드1 = 바꿀내용, 필드2 = 바꿀내용
+
+1. - 것을 전체 데이터 수정 'hello'
+update update_t set name='hello';
+
+2. no가 1이라면 이름을 aaa로, no가 2인 데이터는 bbb
+update updata_t set name='aaa' where no =1;
+update updata_t set name='bbb' where no =2;
+

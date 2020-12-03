@@ -1,0 +1,28 @@
+=========================================================
+[기본키]
+ - 한 테이블내에서는 중복되지 않은 값만 가질 수 있는 키
+	1.저장된 행을 식별할 수 잇는 유일한 값.
+	2. 값에 중복이 없어야함.
+	3. null을 가질 수 없음.
+	
+	
+	insert into test values            (1,'aaa@gmail.com');
+	insert into test (no,email) values (2,'bbb@gmail.com');
+	
+	
+ - 구분할 수 있는거는? 기본키 
+	A : 성별, 나이, 이름, 주민증
+	B : 성별, 나이, 이름, 주민증
+=========================================================
+ 기본키 : 학생증
+ 노트북 : 씨리얼번호
+	--기본키
+		create table test (no number not null primary key, email varchar2(100));
+	--기본키 추가 [add,modify,drop,rename]
+		alter table test add primary key(no); 
+	기본키 확인
+	select constraint_name, constraint_type, table_name, search_condition from user_constraints where table_name='test';
+==================================================================================================================
+ㅁ 이클립스 - create table, insert, select 연동
+1.계정명/비밀번호 연결	
+	
