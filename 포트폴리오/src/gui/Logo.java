@@ -14,6 +14,7 @@ import javax.swing.JTextField;
 import controller.UserInfo;
 
 class Logo{
+	/** 로고화면 **/
 	JFrame frame;
 	JButton[] btn;
 	JPanel[] panel;
@@ -44,6 +45,7 @@ class Logo{
 	}
 
 	public void show() {
+		///////////1. 메인 화면
 		//panel 셋팅
 		//0
 		panel[0].add(label[0]); 

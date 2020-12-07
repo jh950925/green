@@ -9,6 +9,7 @@ import javax.swing.JTextField;
 
 
 public class User_Find {
+	/** 계정찾기 **/
 	JFrame frame;
 	JTextField[] text;
 	JLabel[] label;
@@ -118,6 +119,7 @@ public class User_Find {
 		frame.add(panel[0]);
 		frame.add(panel[1]);
 		frame.setVisible(true);
+		frame.setResizable(false);
 		frame.setLayout(null);
 		frame.setSize(500, 400);
 //		frame.setResizable(false);

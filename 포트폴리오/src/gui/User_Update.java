@@ -11,6 +11,7 @@ import javax.swing.JTextField;
 
 
 public class User_Update {
+	/** 계정수정 **/
 	JFrame frame;
 	JButton[] btn;
 	JPanel[] panel;
@@ -52,7 +53,6 @@ public class User_Update {
 		//panel[0]
 		panel[0].setBounds(0, 0, 400, 40);
 		panel[0].setLayout(null);
-		panel[0].setBackground(Color.GRAY);
 		
 		panel[0].add(btn[0]);
 		btn[0].setBounds(10, 10, 100, 25);
@@ -64,7 +64,6 @@ public class User_Update {
 		//panel[1]
 		panel[1].setLayout(null);
 		panel[1].setBounds(0, 40, 400, 250);
-		panel[1].setBackground(Color.black);
 		
 		//label
 		panel[1].add(label[0]);//이름
@@ -106,6 +105,7 @@ public class User_Update {
 		frame.add(panel[1]);
 		frame.setVisible(true);
 		frame.setSize(400, 300);
+		frame.setResizable(false);
 		frame.setLayout(null);
 	}
 }

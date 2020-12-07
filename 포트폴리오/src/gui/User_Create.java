@@ -6,6 +6,7 @@ import javax.swing.JLabel;
 import javax.swing.JTextField;
 
 public class User_Create {
+	/** 회원가입 **/
 	JFrame frame;
 	JButton btn;
 	JLabel[] label;
@@ -67,8 +68,10 @@ public class User_Create {
 		//frame 셋팅
 		frame.setLocation(500, 100);
 		frame.setLayout(null);
+		frame.setResizable(false);
 		frame.setVisible(true);
 		frame.setSize(300, 420);
 	}
+//	public static void main(String[] args) { new User_Create().show(); }
 }
 

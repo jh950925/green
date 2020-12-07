@@ -1,7 +1,5 @@
 package controller;
 
-import javax.swing.JTextField;
-
 public class UserInfo {
 	private String name;
 	private String id;

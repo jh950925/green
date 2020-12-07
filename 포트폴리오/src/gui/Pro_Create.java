@@ -1,6 +1,5 @@
 package gui;
 
-import java.awt.Color;
 import java.awt.GridLayout;
 
 import javax.swing.JButton;
@@ -13,6 +12,7 @@ import javax.swing.JTextField;
 import javax.swing.table.DefaultTableModel;
 
 public class Pro_Create {
+	/** 상품등록 **/
 	JFrame frame;
 	JButton[] btn;
 	JLabel[] label;
@@ -35,7 +35,7 @@ public class Pro_Create {
 		btn = new JButton[] {
 				new JButton("상품등록"),
 				new JButton("재고확인"),
-				new JButton("재고출고"),
+				new JButton("상품출고"),
 				new JButton("출고확인"),
 				new JButton("홈"),
 				new JButton("임시저장"),
@@ -67,13 +67,13 @@ public class Pro_Create {
 		btn[4].setBounds(920, 10, 50, 30); //홈
 		//panel[1]
 		panel[1].setLayout(null);
-		panel[1].setBounds(0, 60, 1000, 520);
+		panel[1].setBounds(0, 60, 1000, 500);
 		panel[1].add(panel[2]);
 		panel[1].add(panel[3]);
 		
 		//panel[2]
 		panel[2].setLayout(null);
-		panel[2].setBounds(0, 0, 400, 500);
+		panel[2].setBounds(0, 0, 400, 480);
 		
 		///label
 		panel[2].add(label[0]);
@@ -99,15 +99,17 @@ public class Pro_Create {
 		
 		//panel[3]
 		panel[3].setLayout(new GridLayout(1,1));
-		panel[3].setBounds(400, 0, 560, 500);
+		panel[3].setBounds(400, 0, 560, 480);
 		panel[3].add(scrollpane);
 		
 		//frame 셋팅
 		frame.add(panel[0]);
 		frame.add(panel[1]);
 		frame.setVisible(true);
+		frame.setResizable(false);
 		frame.setLayout(null);
 		frame.setSize(1000, 600);
+		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	}
 	
 }
