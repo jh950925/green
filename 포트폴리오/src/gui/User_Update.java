@@ -1,7 +1,5 @@
 package gui;
 
-import java.awt.Color;
-
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -21,7 +19,7 @@ public class User_Update {
 
 	
 	public User_Update() {
-		frame = new JFrame();
+		frame = new JFrame("계정수정");
 		btn = new JButton[3];
 		btn[0] = new JButton("수정");
 		btn[1] = new JButton("계정삭제");
@@ -50,9 +48,21 @@ public class User_Update {
 		};
 	}
 	public void show() {
+		//인터리어
+		//frame 셋팅
+		frame.add(panel[0]);
+		frame.add(panel[1]);
+		frame.setVisible(true);
+		frame.setSize(400, 300);
+		frame.setResizable(false);
+		frame.setLayout(null);
+		
+		panel[0].setLayout(null);
+		panel[1].setLayout(null);
 		//panel[0]
 		panel[0].setBounds(0, 0, 400, 40);
-		panel[0].setLayout(null);
+		//panel[1]
+		panel[1].setBounds(0, 40, 400, 250);
 		
 		panel[0].add(btn[0]);
 		btn[0].setBounds(10, 10, 100, 25);
@@ -62,9 +72,6 @@ public class User_Update {
 		btn[2].setBounds(320, 10, 50, 25);
 		
 		//panel[1]
-		panel[1].setLayout(null);
-		panel[1].setBounds(0, 40, 400, 250);
-		
 		//label
 		panel[1].add(label[0]);//이름
 		label[0].setBounds(30, 10, 70, 20);
@@ -82,6 +89,7 @@ public class User_Update {
 		label[6].setBounds(30, 160, 70, 20);
 		panel[1].add(label[7]);//사원번호
 		label[7].setBounds(30, 185, 70, 20);
+		
 		//textField
 		panel[1].add(text[0]);
 		text[0].setBounds(120, 10, 200, 20);
@@ -99,13 +107,5 @@ public class User_Update {
 		text[6].setBounds(120, 160, 200, 20);
 		panel[1].add(text[7]);
 		text[7].setBounds(120, 185, 200, 20);
-		
-		//frame 셋팅
-		frame.add(panel[0]);
-		frame.add(panel[1]);
-		frame.setVisible(true);
-		frame.setSize(400, 300);
-		frame.setResizable(false);
-		frame.setLayout(null);
 	}
 }

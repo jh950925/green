@@ -24,7 +24,7 @@ class Logo{
 	
 	public Logo(){
 		////////////////////
-		frame = new JFrame();
+		frame = new JFrame("로고");
 		text = new JTextField();
 		passtext = new JPasswordField();
 		btn = new JButton[] {

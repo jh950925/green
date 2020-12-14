@@ -14,7 +14,7 @@ public class Login {
 	JButton[] btn;
 	JLabel[] label;
 	public Login() {
-		frame = new JFrame();
+		frame = new JFrame("메인");
 		panel = new JPanel[] {
 				new JPanel(),
 				new JPanel()

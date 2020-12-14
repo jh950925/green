@@ -4,6 +4,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Iterator;
 
 import javax.swing.JOptionPane;
@@ -23,15 +24,11 @@ public class MVC_Using implements ActionListener {
 	User_Find 		user_find; 		// 계정찾기
 	User_Update 	user_update; 	// 계정정보 수정
 	Pro_Create 		pro_create; 	// 상품등록
-	Wrh_Position 	wrh_position; 	//창고위치
 	Pro_List 		pro_list; 		//재고확인
 	Pro_Delete 		pro_delete; 	//상품출고
 	Stock_List 		stock_list; 	//출고확인
-	//
-	boolean chk;
 	///////////////////////////////////////////////////////////////////////////////////////////////////////
 	public MVC_Using() {
-		chk = false;
 		time = new SimpleDateFormat("yyyy-MM-dd");
 		// user정보
 		userinfo = new ArrayList<UserInfo>();
@@ -42,7 +39,6 @@ public class MVC_Using implements ActionListener {
 		user_find	 = new User_Find();
 		user_update  = new User_Update();
 		pro_create 	 = new Pro_Create();
-		wrh_position = new Wrh_Position();
 		pro_list 	 = new Pro_List();
 		pro_delete 	 = new Pro_Delete();
 		stock_list 	 = new Stock_List();
@@ -65,9 +61,6 @@ public class MVC_Using implements ActionListener {
 		
 		/** pro_create **/
 		for(int i=0; i<pro_create.btn.length;i++) { pro_create.btn[i].addActionListener(this); }
-		
-		/** wrh_position **/
-		wrh_position.btn.addActionListener(this);
 		
 		/** pro_list **/
 		for(int i=0; i<pro_list.btn.length;i++) { pro_list.btn[i].addActionListener(this); }
@@ -104,19 +97,38 @@ public class MVC_Using implements ActionListener {
 						for(int i=0; i<user_create.text.length;i++) { user_create.text[i].setText(""); }
 						logo.frame.dispose();
 						break;
-					}else { JOptionPane.showMessageDialog(null, "비밀번호를 확인해 주세요"); break; }
+					}else{ JOptionPane.showMessageDialog(null, "비밀번호를 확인해 주세요"); break; }
 				}//end if
+				else{ JOptionPane.showMessageDialog(null, "id 확인해 주세요"); break; }
 			}//end while
 		}else if(e.getSource().equals(logo.btn[3])) { System.exit(0); } //종료
 		/************************************************************************************************************/
 		/** 회원가입 **/
 		if(e.getSource().equals(user_create.btn)) {
-			userinfo.add(new UserInfo(
-					user_create.text[0].getText(), user_create.text[1].getText(), 
-					user_create.text[2].getText(), user_create.text[3].getText(),
-					user_create.text[4].getText(), user_create.text[5].getText(), 
-					user_create.text[6].getText(), user_create.text[7].getText())
-			);
+			boolean chk=false;
+			Iterator<UserInfo> iter = userinfo.iterator(); 
+			while(iter.hasNext()) {
+				UserInfo temp = iter.next();
+				if(temp.getId().equals(user_create.text[1].getText())) {
+					JOptionPane.showMessageDialog(null, "중복된 id 입니다.");
+					chk=true;
+					break;
+				}
+			}
+			if(!chk) {
+				if(user_create.text[0].getText().isEmpty()) { JOptionPane.showMessageDialog(null, "이름이 공백입니다."); }
+				else if(user_create.text[1].getText().isEmpty()) { JOptionPane.showMessageDialog(null, "id가 공백입니다."); }
+				else if(!user_create.text[2].getText().equals(user_create.text[3].getText())) { JOptionPane.showMessageDialog(null, "비밀번호를 동힐하게 맞춰주세요"); }
+				else if(user_create.text[7].getText().isEmpty()) { JOptionPane.showMessageDialog(null, "사원번호를 입력해주세요"); }
+				else {
+					userinfo.add(new UserInfo(
+							user_create.text[0].getText(), user_create.text[1].getText(), 
+							user_create.text[2].getText(), user_create.text[3].getText(),
+							user_create.text[4].getText(), user_create.text[5].getText(), 
+							user_create.text[6].getText(), user_create.text[7].getText())
+							);
+				}//정상적인 로그인
+			}//end if(!chk)
 			user_create.frame.dispose();
 			System.out.println(userinfo);
 		}//end user_create
@@ -217,15 +229,24 @@ public class MVC_Using implements ActionListener {
 				temp.setUserNo(user_update.text[6].getText());
 				break;
 			}
+			System.out.println(userinfo);
 			JOptionPane.showMessageDialog(null, "수정되었습니다.");
 		}else if(e.getSource().equals(user_update.btn[1])) { //삭제
-			Iterator<UserInfo> iter = userinfo.iterator();
-			while(iter.hasNext()) {
-				iter.remove();
-				user_update.frame.dispose();
-				login.frame.dispose();
-				logo.show();
+			String delete = JOptionPane.showInputDialog("삭제하시겠습니까?(y/n)");
+			if(delete.trim().equals("y")) {
+				Iterator<UserInfo> iter = userinfo.iterator();
+				logo.text.setText("");
+				logo.passtext.setText("");
+				while(iter.hasNext()) {
+					iter.next();
+					iter.remove();
+					user_update.frame.dispose();
+					login.frame.dispose();
+					logo.show();
+					break;
+				}
 			}
+			System.out.println(userinfo);
 		}else if(e.getSource().equals(user_update.btn[2])) { //홍
 			logo.text.setText(null);
 			logo.passtext.setText(null);
@@ -249,7 +270,11 @@ public class MVC_Using implements ActionListener {
 			login.show();
 			pro_create.frame.dispose();
 		}else if(e.getSource().equals(pro_create.btn[5])) { //임시저장
-			Object [] rowData = {pro_create.text[0].getText(),pro_create.text[1].getText(),pro_create.text[2].getText()};
+			pro_create.text[2].setText((String)pro_create.combo.getSelectedItem());
+			Object [] rowData = {
+					pro_create.text[0].getText()
+					,pro_create.text[1].getText()
+					,pro_create.text[2].getText()};
 			for(int i=0; i<pro_create.text.length;i++) {
 				pro_create.text[i].setText(null);
 			}
@@ -257,12 +282,42 @@ public class MVC_Using implements ActionListener {
 		}else if(e.getSource().equals(pro_create.btn[6])) { //초기화
 			pro_create.defaultTableModel.setNumRows(0);
 		}else if(e.getSource().equals(pro_create.btn[7])) { //등록
-//			System.out.println(pro_create.table.getValueAt(0, 0)); //이름		첫번째
-//			System.out.println(pro_create.table.getValueAt(0, 1)); //수량		첫번째
-//			System.out.println(pro_create.table.getValueAt(0, 2)); //창고이름	첫번째
+			System.out.println(e.getSource());
 			String time_add = time.format(System.currentTimeMillis());
-			for(int i=0; i<pro_create.table.getRowCount();i++) {
-//				if(chk) {
+			//등록 if
+			if(pro_create.frame.getTitle().equals("수정")) {
+				int row = pro_list.table.getSelectedRow();
+				Object [] row_add = {
+						pro_create.table.getValueAt(0, 0),	//이름
+						pro_create.table.getValueAt(0, 1),	//수량
+						time_add,							//날짜
+						pro_create.table.getValueAt(0, 2)	//창고위치
+				};
+				pro_list.defaultTableModel.addRow(row_add);			//재고확인 테이블에 추가
+				pro_delete.defaultTableModel[0].addRow(row_add); 	//상품출고 테이블에 추가
+				pro_list.defaultTableModel.removeRow(row);			//재고확인 테이블에 수정된 row 삭제
+				pro_delete.defaultTableModel[0].removeRow(row);		//상품출고 테이블에 수정된 row 삭제
+				//입력창 초기화
+				for(int i=0; i<pro_create.text.length;i++) { pro_create.text[i].setText(null); }
+				//테이블 초기화
+				pro_create.defaultTableModel.setNumRows(0);
+			}else if(pro_create.frame.getTitle().equals("출고수정")) {
+				int row = stock_list.table.getSelectedRow();
+				Object [] row_add = {
+						pro_create.table.getValueAt(0, 0),	//이름
+						pro_create.table.getValueAt(0, 1),	//수량
+						time_add,							//날짜
+						pro_create.table.getValueAt(0, 2)	//창고위치
+				};
+				pro_list.defaultTableModel.addRow(row_add);			//재고확인 테이블에 추가
+				pro_delete.defaultTableModel[0].addRow(row_add); 	//상품출고 테이블에 추가
+				stock_list.defaultTableModel.removeRow(row);		//출고확인 테이블에 수정된 row 삭제
+				//입력창 초기화
+				for(int i=0; i<pro_create.text.length;i++) { pro_create.text[i].setText(null); }
+				//테이블 초기화
+				pro_create.defaultTableModel.setNumRows(0);
+			}else {
+				for(int i=0; i<pro_create.table.getRowCount();i++) {
 					Object [] row = {
 							pro_create.table.getValueAt(i, 0),	//이름
 							pro_create.table.getValueAt(i, 1),	//수량
@@ -271,32 +326,14 @@ public class MVC_Using implements ActionListener {
 					};
 					pro_list.defaultTableModel.addRow(row);		//재고확인 테이블에 추가
 					pro_delete.defaultTableModel[0].addRow(row); //상품출고 테이블에 추가
-//				}//end chk = false
-//				else {
-//					int row = pro_list.table.getSelectedRow();
-//					if(row == pro_list.table.getSelectedRow()) {
-//						Object [] row2 = {
-//								pro_create.table.getValueAt(i, 0),	//이름
-//								pro_create.table.getValueAt(i, 1),	//수량
-//								time_add,							//날짜
-//								pro_create.table.getValueAt(i, 2)	//창고위치
-//						};
-//						pro_delete.defaultTableModel[0].addRow(row2); //상품출고 테이블에 수정
-//						chk=true;
-//					}//end if
-//				}//end else
-			}//end for
-			
-			//입력창 초기화
-			for(int i=0; i<pro_create.text.length;i++) { pro_create.text[i].setText(null); }
-			//테이블 초기화
-			pro_create.defaultTableModel.setNumRows(0);
-		}
-		/************************************************************************************************************/
-		/** 창고위치 **/
-		if(e.getSource().equals(wrh_position.btn)) {
-			JOptionPane.showMessageDialog(null, "아직 안했음");
-		}
+				}//end for
+				//입력창 초기화
+				for(int i=0; i<pro_create.text.length;i++) { pro_create.text[i].setText(null); }
+				//테이블 초기화
+				pro_create.defaultTableModel.setNumRows(0);
+				pro_create.frame.setTitle("상품등록");
+			}
+		}//end 등록
 		/************************************************************************************************************/
 		/** 재고확인 **/
 		if(e.getSource().equals(pro_list.btn[0])) { //상품등록
@@ -315,8 +352,9 @@ public class MVC_Using implements ActionListener {
 			login.show();
 			pro_list.frame.dispose();
 		}else if(e.getSource().equals(pro_list.btn[5])) { //조회
-			JOptionPane.showMessageDialog(null, "아직 안했음");
+			
 		}else if(e.getSource().equals(pro_list.btn[6])) { //수정
+			pro_create.frame.setTitle("수정");
 			int row = pro_list.table.getSelectedRow();
 			if(row == pro_list.table.getSelectedRow()) {
 				pro_create.text[0].setText((String)pro_list.table.getValueAt(row, 0));	//이름
@@ -375,22 +413,23 @@ public class MVC_Using implements ActionListener {
 			}
 		}else if(e.getSource().equals(pro_delete.btn[7])) { //출고 ####
 			String time_add = time.format(System.currentTimeMillis());
-			int row = pro_delete.table[1].getSelectedRow();
-			if(row == pro_delete.table[1].getSelectedRow()) {
-				System.out.println(row);
-				pro_list.defaultTableModel.removeRow(row);
-				pro_delete.defaultTableModel[0].removeRow(row);
-			}//end if
-			for(int i=0; i<pro_delete.table[1].getRowCount();i++) {
+			for(int i=0; i<pro_delete.table[1].getRowCount(); i++) {
 				Object [] data = {
 						pro_delete.table[1].getValueAt(i, 0),	//이름
 						pro_delete.table[1].getValueAt(i, 1),	//수량
 						time_add,								//날짜
 						pro_delete.table[1].getValueAt(i, 2)	//창고위치
 				};//end data
+				System.out.println(pro_delete.table[1].getRowCount());
+				System.out.println(Arrays.toString(data));
 				stock_list.defaultTableModel.addRow(data);
+				pro_list.defaultTableModel.removeRow(i);
+				pro_delete.defaultTableModel[0].removeRow(i);
 				pro_delete.defaultTableModel[1].removeRow(i);
-			}//end for
+			}
+			for(int i=0;i<pro_delete.text.length;i++) {
+				pro_delete.text[i].setText("");
+			}
 		}
 		/************************************************************************************************************/
 		/** 출고확인 **/
@@ -412,12 +451,30 @@ public class MVC_Using implements ActionListener {
 		}else if(e.getSource().equals(stock_list.btn[5])) { //조회
 			JOptionPane.showMessageDialog(null, "아직 안했음");
 		}else if(e.getSource().equals(stock_list.btn[6])) { //수정
-			JOptionPane.showMessageDialog(null, "아직 안했음");
-		}else if(e.getSource().equals(stock_list.btn[7])) { //삭제
+			pro_create.frame.setTitle("출고수정");
 			int row = stock_list.table.getSelectedRow();
 			if(row == stock_list.table.getSelectedRow()) {
+				pro_create.text[0].setText((String)stock_list.table.getValueAt(row, 0));	//이름
+				pro_create.text[1].setText((String)stock_list.table.getValueAt(row, 1));	//수량
+				pro_create.text[2].setText((String)stock_list.table.getValueAt(row, 3));	//창고위치
+				pro_create.show();
+				stock_list.frame.dispose();
+				System.out.println(pro_create.frame.getTitle());
+			}//end if
+		}else if(e.getSource().equals(stock_list.btn[7])) { //삭제
+			int row = stock_list.table.getSelectedRow();
+			String time_add = time.format(System.currentTimeMillis());
+			if(row == stock_list.table.getSelectedRow()) {
+				Object [] data = {
+						stock_list.table.getValueAt(row, 0),	//이름
+						stock_list.table.getValueAt(row, 1),	//수량
+						time_add,								//날짜
+						stock_list.table.getValueAt(row, 2)		//창고위치
+				};
+				pro_delete.defaultTableModel[0].addRow(data);
+				pro_list.defaultTableModel.addRow(data);
 				stock_list.defaultTableModel.removeRow(row);
-			}
-		}
+			}//end if
+		}//end delete
 	}/**end actionPerformed (이벤트 끝남)**/
 }//end class

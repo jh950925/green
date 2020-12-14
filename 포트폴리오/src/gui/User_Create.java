@@ -13,7 +13,7 @@ public class User_Create {
 	JTextField[] text;
 	public User_Create() {
 		
-		frame = new JFrame("main");
+		frame = new JFrame("회원가입");
 		btn = new JButton("등록");
 		label = new JLabel[] { new JLabel("이름"), new JLabel("id"), new JLabel("password"), new JLabel("password확인"),
 				new JLabel("이메일"), new JLabel("전화번호"), new JLabel("생년월일"), new JLabel("사원번호") };

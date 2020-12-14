@@ -17,7 +17,7 @@ public class User_Find {
 	JPanel[] panel;
 	
 	public User_Find() {
-		frame = new JFrame();
+		frame = new JFrame("계정찾기");
 		label = new JLabel[7];
 		btn = new JButton[4];
 		text = new JTextField[11];
@@ -51,11 +51,23 @@ public class User_Find {
 							 };
 	}
 	public void show() {
+		//frame 셋팅
+		frame.add(panel[0]);
+		frame.add(panel[1]);
+		frame.setVisible(true);
+		frame.setResizable(false);
+		frame.setLayout(null);
+		frame.setSize(500, 400);
+//		frame.setResizable(false);
+		//인테리어
 		//panel셋팅
-		//panel[0]
 		panel[0].setLayout(null);
-		panel[0].setBounds(0, 0, 480, 150);
+		panel[1].setLayout(null);
 		
+		//panel[0]
+		panel[0].setBounds(0, 0, 480, 150);
+		//pane[1]
+		panel[1].setBounds(0, 160, 500, 200);
 		//label
 		panel[0].add(label[0]); //이름
 		label[0].setBounds(10, 10, 50, 25);
@@ -80,9 +92,6 @@ public class User_Find {
 		panel[0].add(btn[1]);	//초기화
 		btn[1].setBounds(390, 10, 70, 25);
 		///////////////////////////////////////////////////////////////////////////
-		//pane[1]
-		panel[1].setLayout(null);
-		panel[1].setBounds(0, 160, 500, 200);
 		
 		//label
 		panel[1].add(label[3]);	//id
@@ -115,13 +124,5 @@ public class User_Find {
 		btn[2].setBounds(300, 130, 70, 25);
 		panel[1].add(btn[3]);   //등록
 		btn[3].setBounds(390, 130, 70, 25);
-		//frame 셋팅
-		frame.add(panel[0]);
-		frame.add(panel[1]);
-		frame.setVisible(true);
-		frame.setResizable(false);
-		frame.setLayout(null);
-		frame.setSize(500, 400);
-//		frame.setResizable(false);
 	}
 }	
