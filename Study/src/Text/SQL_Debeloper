@@ -1,0 +1,29 @@
+------------------------------------------------------------ [Basic]
+####1. sql developoer + select 
+####2. jsp
+		1.html 						: 구조 <div></div> dalidator
+  		2.css						: 꾸미기 bootstrap
+		3.javascript + jquery (html): 움직임
+		
+		4.jsp : html + java(view) / servlet : (controller) / oracle + mysql : (model)
+		
+=======================================================================
+ㅁ작동확인
+ㅁ필기마무리
+	비교연산자 
+	>,<,>=,<=,=(같다),!=(같지핞ㄷ)
+
+	조건연산자
+	and --그리고
+	or 또는 
+	컬럼명 in(값,값.....) .. or 연산자 비슷
+	
+	컬럼명 brtween 최소값 and 최대값 -- and연산자 비슷
+	
+	not(반대)
+	ex)
+		컬럼명 not in (값,값...)
+		컬럼명 not between 최소 and 최대
+		컬럼명 not like '검색문자열'
+		
+		

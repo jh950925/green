@@ -1,0 +1,119 @@
+#1. 웹의 작업 순서
+	---------------------------------------------
+	1)HTML 		ㅁ구조 	예)회원가입폼
+	2)CSS		ㅁ꾸미기	예)시즌별로 예쁘게 
+	3)JS/JQUERY	ㅁ움직임	예)유효성검사규칙(빈칸검사)
+	---------------------------------------------
+	4)JSP + MYSQL, ORACLE ㅁ서버(전송) + 데이터베이스(저장)
+===================================================================
+#2.JSP(TOMCAT설치)
+ㅁ 웹프로그래밍?
+	-[웹어플리케이션]을 구현
+	-웹을 기반으로 작동되는 프로그래밍
+	
+ㅁ jsp + servlet
+		jsp : html 파일에 java 언어를 삽입한 문서
+		servlet : java로만 이루어진 파일
+
+ㅁ MVC
+	M : Model (database) => oracle | mysql |
+	V : View  (jsp)
+	C : Controller (serblet)
+
+ㅁ 기본용어
+	프로토콜 : 네트워크상에서 약속한 통신규약 (HTML, FTP, SMTP, POP, DHCP) 
+	ip : 네트워크상에서 컴퓨터를 식별할 수 있는 주소 (http://127.0.0.1:8080/)
+	DNS : ip주소를 인간이 쉽게 외우도록 맵핑한 문자열 (http://loaclhost:8080/)
+	port : port번호는 해당 ip에서 구동되고 있는 프로그램을 구분할 수 있는 번호(8080)
+	
+	http://127.0.0.1:8080/	http://loaclhost:8080/
+	프로토콜 : http
+	ip : 127.0.0.1
+	DNS : loaclhost
+	port : 8080
+	
+==========================================================================================
+	1.다운로드 
+		1-1. http://tomcat.apache.org/
+		1-2. download
+			tomcat8 [#]
+				Core:
+					zip(pgq,sha512)
+		
+	2.설치
+		2-1. C:\드라이브에 다운로드 받은파일 압출 풀기
+	
+	3.이클립스셋팅
+		3-1. [window] - [perspective] - javaEE
+		3-2. [window] - [Show View]   - server
+		3-3. 이클립스 연동 - 버전에 맞게 설치
+			No server are available. click this link to.... 이용해서 server 생성
+			[apache - tomcat 8.5버전 선택]
+			
+	4.톰캣 환경설정
+		servers - Tomcat v8.5(내가 다운받은버전) Server at localhost [더블클릭]
+		[category : server locations]
+		 ■ Use Tomcat installation
+		[category : server options]
+		 ■ publish module contexts to seperate xml files
+		 ■ module auto reload by  defalut
+		[category : server ports]
+		 ■ localhost:(포트)
+		 
+==========================================================================================
+#3. JSP 
+	
+		1. HTML 
+		2. CSS
+		3. JS + JQUERY
+		4. JSP 			+ SERBLET	 + ORACLE 
+		(VIEW:JAVA+HTML) (CONTROLLER) (MODEL)
+		
+		실습 : 
+		 html : hyper text markup language
+		 <>   : 브라우저야 ~해석해
+		 <html> : 엘리먼트 -해석내용
+		 head : 문서정보
+		 body : 문서내용
+		 
+		 ==>> html5
+		 <!doctype>
+		 <html>
+		 	<head></head>
+		 	<body></body>
+		 </html>
+		 
+		 ㅁ jsp 프로젝트
+		 	[mew] - [project] - [dynamic project] - [next]
+		 	ㅁ프로젝트 이름설정
+		 	■ ~ xml
+		 	
+		 ㅁ html 파일
+		 	[webContent] - [오른쪽마우스] - [html]
+		 	
+		 ㅁ 브라우저에서 로딩
+		 	[window] - [webrowser chrom]
+		 	ctrl + f11
+		 	
+=================q1) jsp만들기
+=================q1) 자기이름쓰기
+
+	ㅁ 마크업 검사
+		https:// validator/w3.org
+	
+	ㅁ 템플릿 
+		[window] - [preferences] - [검색 : jsp] - [Templates] 
+		
+	ㅁ 프론트앤드 프레임워크
+		https://www.w3schools.com/
+		
+	
+	
+
+
+		
+		
+		
+		
+		
+	

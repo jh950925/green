@@ -1,0 +1,54 @@
+#NVL(expr1,expr2)
+	expr1의 값이 null이면 expr2를 반환
+	null이 아니면 expr1을 반환
+
+>> Test1
+	select nvl(null,1000) as expr1이 null면 expr2 from daul;
+	
+	EXPR1dl null이면 EXPR1
+-------------------------
+					1000
+					
+
+>> Test2
+	select NVL(10,1000) as expr1이 null이 아니면expr1 from dual;
+	
+=======================================================================
+#1. 오라클 - 함수 (Decode)
+	-조건에 딸 ㅏ값을 바꿔서 출력하는 decode
+	decode(value, if1,then1,if2, then2, other)
+	-조건식을 좀더 복잡하게 사용하려면 case를 이용
+	case when 조건1 then 표시할 값
+		when 조건2 then 표시할 값2
+		when 조건3 then 표시할 값3
+	else 모든 조건에 해당하지 않을때의 값
+	end
+ 	
+	
+	
+2.No가 1이면 1이다, 2이면 2이다, 3이면 3이다를 출력
+	>>>select no, decode(no,1,'1이다',2,'2이다',3,'3이다') as no from decode_test;
+	
+3.No가 1이면 1이다, 2이면 2이다, 3이면 3이다를 출력
+	>>select no,case 
+	when no=1 then '1이다'
+	when no=2 then '2이다'
+	when no=3 then '3이다.'
+	end	
+	as no from decode_test;
+		
+4.no가 2보다 크면 2보다 크다, 2보다 작다면 작다, 2이면 2이다를 출력
+	>>>select no, decode(no,>2,'2보다 크다',<>2,'2보다작다',3,'3이다') as no from decode_test;
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
